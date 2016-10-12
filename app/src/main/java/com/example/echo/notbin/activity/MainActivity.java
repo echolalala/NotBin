@@ -22,6 +22,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(llm);
 
 
-        //1111112345555555566667777
+
     }
 }
