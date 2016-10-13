@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         list = new ArrayList<BlogPost>();
 
 
-        for (int i = 0; i < 500; i++) {
+        for (int i = 0; i < 10; i++) {
             BlogPost model = new BlogPost();
             model.setContent("我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容*" + i);
             model.setTittle("我是标题*" + i);

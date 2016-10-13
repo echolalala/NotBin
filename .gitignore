@@ -8,3 +8,5 @@
 /captures
 .externalNativeBuild
 app/src/main/java/com/example/echo/notbin/activity/MainActivity.java___jb_tmp___
+
+.idea/gradle.xml
