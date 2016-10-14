@@ -11,6 +11,7 @@ import com.example.echo.notbin.R;
 import com.example.echo.notbin.adappters.RecyclerViewAdapter;
 import com.example.echo.notbin.adappters.SpaceItemDecoration;
 import com.example.echo.notbin.models.BlogPost;
+import com.facebook.drawee.backends.pipeline.Fresco;
 
 import java.security.PublicKey;
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Fresco.initialize(this);
         recyclerView = (RecyclerView) findViewById(R.id.blog_rc);
 
         InitList();
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         list = new ArrayList<BlogPost>();
 
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 500; i++) {
             BlogPost model = new BlogPost();
             model.setContent("我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容*" + i);
             model.setTittle("我是标题*" + i);
