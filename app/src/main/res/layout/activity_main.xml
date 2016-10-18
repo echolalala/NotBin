@@ -21,13 +21,16 @@
             android:id="@+id/blog_rc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
+            android:paddingTop="?attr/actionBarSize"
+            android:clipToPadding="false"
             />
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"/>
+            android:background="?attr/colorPrimary"
+            app:theme="@style/AppTheme.AppBarOverlay"
+            />
 
     </FrameLayout>
 

@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     List<BlogPost> list;
     DrawerLayout drawerLayout;
     Toolbar mToolbar;
-    //ActionBarDrawerToggle toggle;
+    ActionBarDrawerToggle toggle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +58,12 @@ public class MainActivity extends AppCompatActivity {
                 showViews();
             }
         });
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
     }
 
     private void hideViews() {
@@ -76,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
         setTitle(getString(R.string.app_name));
-        mToolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
+        //mToolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
     }
 
     public List<BlogPost> InitList() {
@@ -96,16 +102,5 @@ public class MainActivity extends AppCompatActivity {
     private void initDrawerLayout(){
         drawerLayout=(DrawerLayout)super.findViewById(R.id.drawer_layout);
         drawerLayout.setScrimColor(Color.TRANSPARENT);
-//        toggle=new ActionBarDrawerToggle(this,drawerLayout,
-//                R.drawable.back_move_details_normal,R.string.drawer_open
-//                ,R.string.drawer_close){
-//            public void onDrawerClosed(View drawerView) {
-//                super.onDrawerClosed(drawerView);
-//            }
-//            public void onDrawerOpened(View drawerView) {
-//                super.onDrawerOpened(drawerView);
-//            }
-//        };
-        //drawerLayout.setDrawerListener(toggle);
     }
 }
