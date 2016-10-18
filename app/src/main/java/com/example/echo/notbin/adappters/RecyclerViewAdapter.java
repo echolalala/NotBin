@@ -54,7 +54,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         //holder.tittleTV.setBackgroundColor(new Color().alpha(20));
         holder.contentTv.setText(list.get(position).getContent());
 
-        holder.im.setImageURI("http://images.csdn.net/20130609/zhuanti.jpg");
+        holder.im.setImageURI("https://pic1.zhimg.com/d801dc1a15b87790877e82efe7aef720_b.jpg");
 
     }
 
