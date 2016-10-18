@@ -1,6 +1,7 @@
 package com.example.echo.notbin.activity;
 
 import android.graphics.Color;
+import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,10 +9,12 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.example.echo.notbin.R;
 import com.example.echo.notbin.adappters.RecyclerViewAdapter;
@@ -28,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     List<BlogPost> list;
     DrawerLayout drawerLayout;
     Toolbar mToolbar;
+
+     ActionBarDrawerToggle mDrawerToggle;
     //ActionBarDrawerToggle toggle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +63,16 @@ public class MainActivity extends AppCompatActivity {
                 showViews();
             }
         });
+
+
+        //设置actionbar和DrawerLayout联动
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
     }
 
     private void hideViews() {
@@ -75,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
     private void initToolbar() {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-        setTitle(getString(R.string.app_name));
-        mToolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
+        setTitle("首页");
+        //mToolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
     }
 
     public List<BlogPost> InitList() {
