@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        //测试git
+        //测试git123
     }
 
     private void hideViews() {
