@@ -1,7 +1,6 @@
 package com.example.echo.notbin.activity;
 
 import android.graphics.Color;
-import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,12 +8,10 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.example.echo.notbin.R;
 import com.example.echo.notbin.adappters.RecyclerViewAdapter;
@@ -31,9 +28,7 @@ public class MainActivity extends AppCompatActivity {
     List<BlogPost> list;
     DrawerLayout drawerLayout;
     Toolbar mToolbar;
-
-     ActionBarDrawerToggle mDrawerToggle;
-    //ActionBarDrawerToggle toggle;
+    ActionBarDrawerToggle toggle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,15 +59,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        //设置actionbar和DrawerLayout联动
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-
-        drawer.addDrawerListener(toggle);
+        drawer.setDrawerListener(toggle);
         toggle.syncState();
-
     }
 
     private void hideViews() {
@@ -90,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     private void initToolbar() {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-        setTitle("首页");
+        setTitle(getString(R.string.app_name));
         //mToolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
     }
 
@@ -111,16 +102,5 @@ public class MainActivity extends AppCompatActivity {
     private void initDrawerLayout(){
         drawerLayout=(DrawerLayout)super.findViewById(R.id.drawer_layout);
         drawerLayout.setScrimColor(Color.TRANSPARENT);
-//        toggle=new ActionBarDrawerToggle(this,drawerLayout,
-//                R.drawable.back_move_details_normal,R.string.drawer_open
-//                ,R.string.drawer_close){
-//            public void onDrawerClosed(View drawerView) {
-//                super.onDrawerClosed(drawerView);
-//            }
-//            public void onDrawerOpened(View drawerView) {
-//                super.onDrawerOpened(drawerView);
-//            }
-//        };
-        //drawerLayout.setDrawerListener(toggle);
     }
 }
