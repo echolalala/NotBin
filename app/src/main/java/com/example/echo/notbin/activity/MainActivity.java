@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        //测试本机
+        //测试本机111111111111111111111111111
     }
 
     private void hideViews() {
